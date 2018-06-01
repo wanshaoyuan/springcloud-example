@@ -23,9 +23,9 @@ docker-compose 部署方式
 
 
 kubernetes 部署方式 
- http://localhost:30010 - Gateway  
- http://localhost:30011 - Eureka Dashboard  
- http://localhost:30012/hystrix - Hystrix Dashboard (paste Turbine stream link on the form)  
- http://localhost:30013 - Turbine stream (source for the Hystrix Dashboard)  
- http://localhost:30014 - RabbitMq management (default login/password: guest/guest)  
+- http://localhost:30010 - Gateway  
+- http://localhost:30011 - Eureka Dashboard  
+- http://localhost:30012/hystrix - Hystrix Dashboard (paste Turbine stream link on the form)  
+- http://localhost:30013 - Turbine stream (source for the Hystrix Dashboard)  
+- http://localhost:30014 - RabbitMq management (default login/password: guest/guest)  
 
