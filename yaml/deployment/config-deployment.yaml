@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: config
+  namespace: springcloud
+  labels:
+    name: config
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: config
+    spec:
+      terminationGracePeriodSeconds: 120
+      containers:
+      - name: config
+        image: sqshq/piggymetrics-config
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: CONFIG_SERVICE_PASSWORD
+          value: admin 

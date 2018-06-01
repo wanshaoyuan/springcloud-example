@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: auth-mongodb
+  namespace: springcloud
+  labels:
+    name: auth-mongodb
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: auth-mongodb
+    spec:
+      terminationGracePeriodSeconds: 120
+      containers:
+      - name: auth-mongodb
+        image: sqshq/piggymetrics-mongodb
+        imagePullPolicy: IfNotPresent
+        env:
+         - name: MONGODB_PASSWORD
+           value: admin

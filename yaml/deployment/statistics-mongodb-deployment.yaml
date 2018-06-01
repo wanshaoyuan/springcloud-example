@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: statistics-mongodb
+  namespace: springcloud
+  labels:
+    name: statistics-mongodb
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: statistics-mongodb
+    spec:
+      terminationGracePeriodSeconds: 120
+      containers:
+      - name: statistics-mongodb
+        image: sqshq/piggymetrics-mongodb
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: MONGODB_PASSWORD
+          value: admin
+

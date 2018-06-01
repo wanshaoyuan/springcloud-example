@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: account-service
+  namespace: springcloud
+  labels:
+    name: account-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: account-service
+    spec:
+      terminationGracePeriodSeconds: 120
+      containers:
+      - name: account-service
+        image: sqshq/piggymetrics-account-service
+        imagePullPolicy: IfNotPresent
+        env:
+         - name: CONFIG_SERVICE_PASSWORD
+           value: admin
+         - name: ACCOUNT_SERVICE_PASSWORD
+           value: admin
+         - name: MONGODB_PASSWORD
+           value: admin

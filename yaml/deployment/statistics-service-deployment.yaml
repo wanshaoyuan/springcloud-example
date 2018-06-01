@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: statistics-service
+  namespace: springcloud
+  labels:
+    name: statistics-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: statistics-service
+    spec:
+      terminationGracePeriodSeconds: 120
+      containers:
+      - name: statistics-service
+        image: sqshq/piggymetrics-statistics-service
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: CONFIG_SERVICE_PASSWORD
+          value: admin
+        - name: MONGODB_PASSWORD
+          value: admin
+        - name: STATISTICS_SERVICE_PASSWORD
+          value: admin
+

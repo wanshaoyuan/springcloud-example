@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: notification-mongodb
+  namespace: springcloud
+  labels:
+    name: notification-mongodb
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: notification-mongodb
+    spec:
+      terminationGracePeriodSeconds: 120
+      containers:
+      - name: notification-mongodb
+        image: sqshq/piggymetrics-mongodb
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: MONGODB_PASSWORD
+          value: admin

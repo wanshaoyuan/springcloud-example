@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: gateway
+  namespace: springcloud
+  labels:
+    name: gateway
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: gateway
+    spec:
+      terminationGracePeriodSeconds: 120
+      containers:
+      - name: gateway
+        image: sqshq/piggymetrics-gateway
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: CONFIG_SERVICE_PASSWORD
+          value: admin

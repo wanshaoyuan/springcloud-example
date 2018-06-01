@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: registry
+  namespace: springcloud
+  labels:
+    name: registry
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: registry
+    spec:
+      terminationGracePeriodSeconds: 120
+      containers:
+      - name: registry
+        image: sqshq/piggymetrics-registry
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: CONFIG_SERVICE_PASSWORD
+          value: admin
+

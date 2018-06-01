@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: notification-service
+  namespace: springcloud
+  labels:
+    name: notification-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: notification-service
+    spec:
+      terminationGracePeriodSeconds: 120
+      containers:
+      - name: notification-service
+        image: sqshq/piggymetrics-notification-service
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: CONFIG_SERVICE_PASSWORD
+          value: admin
+        - name: MONGODB_PASSWORD
+          value: admin
+        - name: NOTIFICATION_SERVICE_PASSWORD
+          value: admin
+
