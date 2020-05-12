@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1 
 kind: Deployment
 metadata:
   name: registry
@@ -7,6 +7,12 @@ metadata:
     name: registry
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+        name: registry
+  selector:
+    matchLabels:
+        name: registry
   template:
     metadata:
       labels:

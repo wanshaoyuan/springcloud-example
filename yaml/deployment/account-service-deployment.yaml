@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: account-service
@@ -7,6 +7,9 @@ metadata:
     name: account-service
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+        name: account-service
   template:
     metadata:
       labels:

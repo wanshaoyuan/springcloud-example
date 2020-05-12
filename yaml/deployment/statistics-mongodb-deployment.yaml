@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: statistics-mongodb
@@ -7,6 +7,9 @@ metadata:
     name: statistics-mongodb
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+        name:  statistics-mongodb
   template:
     metadata:
       labels:

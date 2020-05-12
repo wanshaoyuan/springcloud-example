@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: notification-mongodb
@@ -7,6 +7,9 @@ metadata:
     name: notification-mongodb
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+        name: notification-mongodb
   template:
     metadata:
       labels:
